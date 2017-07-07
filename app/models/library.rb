@@ -1,6 +1,6 @@
 class Library < ApplicationRecord
   belongs_to :user
-
+  
   for i in 1..50 do
     validates "card_#{i}",
       numericality: {

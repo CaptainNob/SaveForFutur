@@ -3,48 +3,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #  super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
   def create
-    build_resource(sign_up_params)
-
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      resource.create_library(
-        card_1: 10, card_2: 6, card_3: 4, card_4: 4, card_7: 6,
-        card_8: 2, card_9: 1,card_12: 1, card_14: 1, card_15: 1,
-        card_16: 1
-      )
-      resource.decks.create(
-        name: "Default Deck", card_1: 10, card_2: 6, card_3: 4, 
-        card_4: 4, card_7: 6, card_8: 2, card_9: 1,card_12: 1,
-        card_14: 1, card_15: 1, card_16: 1
-      )
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
-    end
+    super
+    resource.create_library(card_1: 10, card_2: 6, card_7: 6, card_4: 4, card_3: 4, card_8: 2, card_9: 1, card_12: 1, card_14: 1, card_15: 1, card_16: 1)
+    resource.decks.create!(name: "Default Deck", card_1: 10, card_2: 6, card_7: 6, card_4: 4, card_3: 4, card_8: 2, card_9: 1, card_12: 1, card_14: 1, card_15: 1)
   end
 
   # GET /resource/edit
-  def edit
-    @purchase_histories = current_user.purchase_histories
-    super
-  end
+  # def edit
+  #   super
+  # end
 
   # PUT /resource
   # def update

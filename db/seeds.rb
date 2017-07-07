@@ -13,26 +13,11 @@ user_list = [
   ]
 
 user_list.each do |username, email, admin, password, password_confirmation|
-  u = User.new(
-    username: username,
-    email: email,
-    admin: admin,
-    password: password,
-    password_confirmation: password_confirmation
-  )
+  u = User.new(username: username, email: email, admin: admin, password: password, password_confirmation: password_confirmation)
   u.confirm
   u.save
-  u.create_library(
-    card_1: 10, card_2: 6, card_3: 4, card_4: 4, card_7: 6,
-    card_8: 2, card_9: 1, card_12: 1, card_14: 1, card_15: 1,
-    card_16: 1
-  )
-  u.decks.create!(
-    name: "Default Deck",
-    card_1: 10, card_2: 6, card_3: 4, card_4: 4, card_7: 6,
-    card_8: 2, card_9: 1, card_12: 1, card_14: 1, card_15: 1,
-    card_16: 1
-  )
+  u.create_library(card_1: 10, card_2: 6, card_7: 6, card_4: 4, card_3: 4, card_8: 2, card_9: 1, card_12: 1, card_14: 1, card_15: 1, card_16: 1)
+  u.decks.create!(name: "Default Deck", card_1: 10, card_2: 6, card_7: 6, card_4: 4, card_3: 4, card_8: 2, card_9: 1, card_12: 1, card_14: 1, card_15: 1, card_16: 1)
 end
 
 capacity_list = [
@@ -47,49 +32,43 @@ capacity_list = [
 ]
 
 capacity_list.each do |name, description|
-  c = SpecialAbility.new(
-    name: name,
-    effect: description
-  )
+  c = SpecialAbility.new(name: name, effect: description)
   c.save
 end
 
 card_list = [
-  ['app/assets/images/card_01.png', 'Péons', 1, 1, 0, 1, 0, 0, 0, SpecialAbility.find_by(id: 1), nil, 100],
-  ['app/assets/images/card_02.png', 'Troufions', 1, 1, 1, 1, 1, 0, 0, nil, nil, 100],
-  ['app/assets/images/card_03.png', 'Boîtes de fer', 1, 2, 1, 1, 0, 0, 2, nil, nil, 100],
-  ['app/assets/images/card_04.png', 'Brise-fémur', 1, 1, 2, 1, 2, 0, 0, nil, nil, 100],
-  ['app/assets/images/card_05.png', 'Empaleurs franc', 2, 2, 2, 1, 2, 0, 1, nil, nil, 100],
-  ['app/assets/images/card_06.png', 'Pourfendeurs de pance', 2, 2, 3, 1, 2, 0, 2, nil, nil, 100],
-  ['app/assets/images/card_07.png', 'Dompteurs de chèvre', 1, 1, 1, 2, 0, 1, 0, nil, nil, 100],
-  ['app/assets/images/card_08.png', 'Monteurs de sanglier', 2, 1, 2, 2, 0, 2, 0, nil, nil, 300],
-  ['app/assets/images/card_09.png', 'Chevaucheurs de Taureau', 2, 1, 3, 2, 0, 2, 1, nil, nil, 300],
-  ['app/assets/images/card_10.png', 'Sénéchal Dudéclin', 3, 3, 2, 2, 0, 2, 3, SpecialAbility.find_by(id: 7), nil, 500],
-  ['app/assets/images/card_11.png', 'Chevalier sans repoche', 3, 4, 2, 1, 2, 0, 3, SpecialAbility.find_by(id: 8), nil, 500],
-  ['app/assets/images/card_12.png', 'Sir Ost Pytal', 3, 4, 1, 2, 3, 2, 0, SpecialAbility.find_by(id: 3), nil, 500],
-  ['app/assets/images/card_13.png', 'Dr Mééééé', 3, 6, 0, 1, 3, 0, 2, SpecialAbility.find_by(id: 4), nil, 500],
-  ['app/assets/images/card_14.png', 'Mère Fouettard', 3, 3, 3, 1, 2, 1, 2, SpecialAbility.find_by(id: 5), nil, 500],
-  ['app/assets/images/card_15.png', 'Contesse Terreur', 3, 2, 3, 2, 1, 2, 2, SpecialAbility.find_by(id: 6), nil, 500],
-  # Duke carte n°16
-  ['app/assets/images/card_16.png', 'Duke Con', 10, 0, 0, 0, 0, 0, nil, nil]
+  ['app/assets/images/MMlogo.jpg', 'Péons', 1, 1, 0, 1, 0, 0, 0, SpecialAbility.find_by(id: 1), SpecialAbility.find_by(id: 2)],
+  ['app/assets/images/MMlogo.jpg', 'Troufions', 1, 1, 1, 1, 1, 0, 0, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Boîtes de fer', 1, 2, 1, 1, 0, 0, 2, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Brise-fémur', 1, 1, 2, 1, 2, 0, 0, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Empaleurs franc', 2, 2, 2, 1, 2, 0, 1, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Pourfendeurs de pance', 2, 2, 3, 1, 2, 0, 2, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Dompteurs de chèvre', 1, 1, 1, 2, 0, 1, 0, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Monteurs de sanglier', 2, 1, 2, 2, 0, 2, 0, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Chevaucheurs de Taureau', 2, 1, 3, 2, 0, 2, 1, nil, nil],
+  ['app/assets/images/MMlogo.jpg', 'Sénéchal Dudéclin', 3, 3, 2, 2, 0, 2, 3, SpecialAbility.find_by(id: 7), nil],
+  ['app/assets/images/MMlogo.jpg', 'Duc Ontoire', 3, 4, 2, 1, 2, 0, 3, SpecialAbility.find_by(id: 8), nil],
+  ['app/assets/images/MMlogo.jpg', 'Sir Ost Pytal', 3, 4, 1, 2, 3, 2, 0, SpecialAbility.find_by(id: 3), nil],
+  ['app/assets/images/MMlogo.jpg', 'Dr Mééééé', 3, 6, 0, 1, 3, 0, 2, SpecialAbility.find_by(id: 4), nil],
+  ['app/assets/images/MMlogo.jpg', 'Mère Fouettard', 3, 3, 3, 1, 2, 1, 2, SpecialAbility.find_by(id: 5), nil],
+  ['app/assets/images/MMlogo.jpg', 'Contesse Terreur', 3, 2, 3, 2, 1, 2, 2, SpecialAbility.find_by(id: 6), nil],
+  #Duke carte n°16
+  ['app/assets/images/MMlogo.jpg', 'Duke Con', 10, 0, 0, 0, 0, 0, nil, nil]
 ]
 
 # Non pris en compte de l'image
-card_list.each do |image, name, rarity, health_point, attack_point, move_point, wood_cost, food_cost, iron_cost, capacity1, capacity2, sell_price|
-  c = Card.new(
-    name: name, 
-    rarity: rarity, 
-    health_point: health_point, 
-    attack_point: attack_point, 
-    move_point: move_point, 
-    wood_cost: wood_cost, 
-    food_cost: food_cost, 
-    iron_cost: iron_cost, 
-    special_ability1: capacity1, 
-    special_ability2: capacity2,
-    sell_price: sell_price
-  )
-  
+card_list.each do |image, name, rarity, health_point, attack_point, move_point, wood_cost, food_cost, iron_cost, capacity1, capacity2|
+  c = Card.new(name: name,
+    rarity: rarity,
+    health_point: health_point,
+    attack_point: attack_point,
+    move_point: move_point,
+    wood_cost: wood_cost,
+    food_cost: food_cost,
+    iron_cost: iron_cost,
+    special_ability1: capacity1,
+    special_ability2: capacity2)
+
   c.image = File.open(image)
   c.save
 end
@@ -103,22 +82,27 @@ kibrillesPack_list = [
 ]
 
 kibrillesPack_list.each do |kibrilles, euros|
-  k = KibrillesPack.new(
-    kibrilles: kibrilles,
-    euros: euros
-  )
+  k = KibrillesPack.new(kibrilles: kibrilles, euros: euros)
   k.save
 end
 
-Gacha_list = [
-  ['app/assets/images/gacha.png', 'Heroes Heroes', true, 100, 1, 60, 30],
-  ['app/assets/images/gacha.png', 'Champions Pack', false, 1000, 60, 30, 10],
-  ['app/assets/images/gacha.png', 'Mads Pack', false, 100, 90, 8, 2]
-]
+# kibrillesGacha_list = [
+#   ['Pack Brave', 700, 6000, 0, 90, 10],
+#   ['Pack Champion', 1000, 9000, 0, 70, 30],
+#   ['Pack Héros', 10000, 90000, 0, 0, 100]
+# ]
 
-Gacha_list.each do |image, name, kibrilles, price, rare1, rare2, rare3|
-  g = Gacha.new(name: name, kibrilles: kibrilles, price: price, rare1: rare1, rare2: rare2, rare3: rare3)
-  g.image = File.open(image)
-  g.save
-end
+# kibrillesGacha_list.each do |name, cost, cost10, pourcentRk1, pourcentRk2, pourcentRk3|
+#   k = KibrillesGacha.new(name: name, cost: cost, cost10: cost10, pourcentRk1: pourcentRk1, pourcentRk2: pourcentRk2, pourcentRk3: pourcentRk3)
+#   k.save
+# end
 
+# dingdingGacha_list = [
+#   ['Garde 1', 1000, 9000, 80, 19, 1],
+#   ['Garde 2', 10000, 90000, 70, 25, 5]
+# ]
+
+# dingdingGacha_list.each do |name, cost, cost10, pourcentRk1, pourcentRk2, pourcentRk3|
+#   d = DingdingGacah.new(name: name, cost: cost, cost10: cost10, pourcentRk1: pourcentRk1, pourcentRk2: pourcentRk2, pourcentRk3: pourcentRk3)
+#   d.save
+# end

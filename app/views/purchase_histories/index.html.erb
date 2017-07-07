@@ -1,15 +1,13 @@
-<div class="PartieHaute">
-  <table>
-    <tr>
-      <% @pack_kibrilles.each do |pk| %>
-        <td>
-          <%= image_tag pk.pack_image.thumb %><br>
-          <b><%= pk.kibrilles %> Kibrilles</b>
-          <b><%= pk.euros %> €</b>
-          <%= button_to("Acheter Pack", { action: 'create' }, method: :post, params: {id: pk.id},
-            data: { confirm: "Acheter Pack :\n#{pk.kibrilles} Kibrilles\nMontant Euros : #{pk.euros} €" }) %>
-        </td>
-      <% end %>
-    </tr>
-  </table>
-</div>
+<table>
+  <tr>
+    <% @pack_kibrilles.each do |pk| %>
+      <td>
+        <%= image_tag pk.pack_image.thumb %><br>
+        <b><%= pk.kibrilles %> Kibrilles</b>
+        <b><%= pk.euros %> €</b>
+        <%= button_to("Acheter Pack", { action: 'create' }, method: :post, params: {id: pk.id},
+          data: { confirm: "Acheter Pack :\n#{pk.kibrilles} Kibrilles\nMontant Euros : #{pk.euros} €" }) %>
+      </td>
+    <% end %>
+  </tr>
+</table>

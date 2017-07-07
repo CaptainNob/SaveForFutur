@@ -1,7 +1,4 @@
 class DeckController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :deck_not_found
-  before_action :find_deck, only: [:edit, :update, :destroy]
-  
   def index
     @decks = current_user.decks
   end
@@ -40,13 +37,14 @@ class DeckController < ApplicationController
   end
 
   def edit
+    @deck = current_user.decks.find_by(id: params[:id])
     @cards = Card.all
     
     fail ActiveRecord::RecordNotFound if @deck.nil?
   end
 
   def update
-    @deck = current_user.decks.find(params[:id])
+    @deck = current_user.decks.find_by(id: params[:id])
     @deck.update(deck_params)
     @deck.card_16 = 1
     
@@ -76,6 +74,8 @@ class DeckController < ApplicationController
   end
 
   def destroy
+    @deck = current_user.decks.find_by(id: params[:id])
+    
     if @deck.nil?
       fail ActiveRecord::RecordNotFound
     else
@@ -91,6 +91,10 @@ class DeckController < ApplicationController
         end
       end
     end
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render 'decks/deck_missing', status: 404
   end
 
   private
@@ -109,13 +113,5 @@ class DeckController < ApplicationController
                                  :card_42, :card_43, :card_44, :card_45,
                                  :card_46, :card_47, :card_48, :card_49,
                                  :card_50)
-  end
-  
-  def find_deck
-    @deck = Deck.find(params[:id])
-  end
-  
-  def deck_not_found
-    render 'decks/deck_missing', status: 404
   end
 end

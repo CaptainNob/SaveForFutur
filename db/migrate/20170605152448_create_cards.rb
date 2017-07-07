@@ -1,6 +1,7 @@
 class CreateCards < ActiveRecord::Migration[5.1]
   def change
     create_table :cards do |t|
+      t.string :image, null: false
       t.string :image, null: false, default: 'app/assets/images/MMlogo.jpg'
       t.string :name, null: false, default: 'Une carte'
       t.integer :rarity, null: false, default: 1

@@ -40,7 +40,7 @@ ActiveAdmin.register KibrillesPack do
       f.input :kibrilles
       f.input :euros
     end
-    
     f.actions
+    
   end
 end

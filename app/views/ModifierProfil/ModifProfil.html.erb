@@ -1,0 +1,101 @@
+	
+	<html>
+	    
+	<head>
+	  <link rel="stylesheet" href="<ModifProfil.scss">      
+	</head>
+	
+	<body>
+	  <div class="Part"> 
+	    <div class="PartCentre">
+			<h3>Information Partie</h3>
+			Nombre de Victoire:1
+			Nombre de Defaite:1
+			Ratio V/D:50%
+			Partie en King Slayer :1
+			Partie en capture de points :1
+			<div><h3>Historique Partie</h3></div>
+			<div>
+			    
+                    <tr>
+                       <th>Date</th>
+                       <th>Nom</th>
+                       <th>Resultat</th>
+                       <th>Exp</th>
+                    </tr>
+                    <tr>
+                        <td>02/05/2017</td>
+                       <td>Partie 1</td>
+                       <td>Victoire</td>
+                        <th>1000
+                        </th>
+                    </tr>
+                    <tr>
+                       <td>03/05/2017</td>
+                        <td>Partie 2</td>
+                       <td>Defaite</td>
+                        <td>0</td>
+			</div>
+			
+	    </div>
+	    <div class="PartGauche">
+		    <h3>Information Personnel</h3>
+		    Joueur: <%= current_user.username %>
+		     <div id="register" class="animate form">
+                            <form  action="mysuperscript.php" autocomplete="on"> 
+                               
+                                <p> 
+                                    <label for="usernamesignup" class="uname" data-icon="u">Nouveau mot de passe</label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail" data-icon="e" >Confirmez votre mot de passe</label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p"> Nouvelle adresse mail </label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Confirmez votre adresse</label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                            </form>   
+                        <div class="wrapper-bibli">    
+                    	<div class="carte"></div>   
+                    	</div>
+            </div>
+            <a href="#" class="btn btn-primary btn-sm">Choisir Avatar</a>
+            <a href="#" class="btn btn-primary btn-lg">Enregistrer</a>
+	    </div>
+	    <div class="PartDroite">
+		    <h3>Historique Paiement</h3>
+		    <div>
+		        <tr>
+                       <th>Label</th>
+                       <th>Date</th>
+                       <th>Montant</th>
+                    
+                    </tr>
+                    <tr>
+                        <td>100 Kibrilles</td>
+                       <td>02/05/2017</td>
+                       <td>10€</td>
+                        
+                    </tr>
+                    <tr>
+                       <td>10000 Kibrilles</td>
+                        <td>03/05/2017</td>
+                       <td>100€</td>
+                     </tr>
+                     <tr>
+                         <td>Pack légendaire</td>
+                        <td>05/05/2017</td>
+                       <td>Tarif de Pigeon</td>
+                     </tr>
+		    </div>
+	    </div>
+	  </div>
+	</body>	
+
+    </html>

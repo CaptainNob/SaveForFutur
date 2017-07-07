@@ -1,4 +1,8 @@
 <html>
+  <head>
+	  <link rel="stylesheet" href="bibliotheque.css">
+  </head>
+
   <body>
     <h1>BIBLIOTHEQUE</h1>
 	  <div class="wrapper-bibli">
@@ -9,11 +13,32 @@
   		      <% if current_user.library.send("card_#{c.id}") > 0 %>
   		        <% for i in 1..current_user.library.send("card_#{c.id}") do %>
 	              <div class="carte">
-	                <%= image_tag(c.image.url(:thumb))%>
+	                <%= image_tag(c.image.url(:thumb)) %>
+	                <p>
+	                  Nom : <%= c.name %>
+                  </p>
+                  <p>
+                    Rareté : <%= c.rarity %><t>
+                    HP : <%= c.health_point %><br>
+                    MP : <%= c.move_point %><t>
+                    Coût : <%= c.food_cost %>
+                  </p>
+                  <% if c.special_ability1 %>
+                    <p>
+                      Compétence 1 : <%= c.special_ability1.name %><br>
+                      Effet : <%= c.special_ability1.effect %>
+                    </p>
+                  <% end %>
+                  <% if c.special_ability2 %>
+                    <p>
+                      Compétence 2 : <%= c.special_ability2.name %><br>
+                      <%= c.special_ability2.effect %>
+                    </p>
+                  <% end %>
                   <% button_to("Vendre Carte", { action: :update }, method: :update, params: { card_id: c.id },
                     data: { confirm: "Vendre : #{c.name} ?\nValeur Carte : #{c.sell_price} Dingdings"}) %>
 	              </div>
-	              <% counter += 1 %>
+	              <% counter +=1 %>
 	            <% end %>
 	          <% end %>
   		    <% end %>
@@ -22,6 +47,10 @@
 	
   		<div class="stats-bibli">
 	  		<h3><%= "Total cartes : #{counter} / 100" %></h3>
+		  </div>
+		  
+		  <div class="tri-bibli">
+			  <h3>Tri</h3>
 		  </div>
 	  </div>
   </body>

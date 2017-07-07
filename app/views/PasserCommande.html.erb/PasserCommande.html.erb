@@ -1,0 +1,86 @@
+<html>
+    <head>
+        
+    </head>
+    
+    <body>
+        <div class="Tableau">
+            
+            
+            	<TABLE BORDER="1"> 
+  				<CAPTION> Résumé de la Commande </CAPTION> 
+ 				 <TR> 
+ 					<TH> Produit </TH> 
+ 					<TH> Contenu </TH> 
+ 					<TH> Livraison</TH> 
+ 					<TH> Prix </TH> 
+				
+ 				 </TR> 
+ 				 <TR> 
+ 					<TH> Starter Pack </TH> 
+ 					<TD> 500 Kibrilles </TD> 
+ 					<TD>  Immédiate</TD> 
+ 					<TD> 10€</TD> 
+				
+  				</TR> 
+  				</TABLE>
+        </div>  
+        <div class="PartieBasse">
+              <!--Bouton Mode -->
+             <ul id="menu-demo3">
+              <li><%= link_to root_path do %><% end %>
+		            <ul>
+			            <li><a href="#">Moyen de Paiement</a></li>
+			                        <li><a href="#">Carte de Crédit</a></li>
+			                        <li><a href="#">Paypal</a></li>
+		        	                <li><a href="#">Autre</a></a></li>
+		                        </ul>
+	                        </li>
+	                     </ul>
+	                     <form id=paiement>
+<fieldset>
+    <legend>Informations CB</legend>
+    <ol>
+      <li>
+        <fieldset>
+          <legend>Type de carte bancaire</legend>
+          <ol>
+            <li>
+              <input id=visa name=type_de_carte type=radio>
+              <label for=visa>VISA</label>
+            </li>
+            <li>
+              <input id=amex name=type_de_carte type=radio>
+              <label for=amex>AmEx</label>
+            </li>
+            <li>
+              <input id=mastercard name=type_de_carte type=radio>
+              <label for=mastercard>Mastercard</label>
+            </li>
+          </ol>
+        </fieldset>
+      </li>
+      <li>
+        <label for=numero_de_carte>Numéro de carte</label>
+        <input id=numero_de_carte name=numero_de_carte type=number required>
+      </li>
+      <li>
+        <label for=securite>Code sécurité</label>
+        <input id=securite name=securite type=number required>
+      </li>
+      <li>
+        <label for=nom_porteur>Nom du porteur</label>
+        <input id=nom_porteur name=nom_porteur type=text placeholder="Même nom que sur la carte" required>
+      </li>
+    </ol>
+  </fieldset>
+
+  <fieldset>
+    <button type=submit>J'achète !</button>
+  </fieldset>
+</form>
+        </div>
+    
+    </body>
+    
+</html>

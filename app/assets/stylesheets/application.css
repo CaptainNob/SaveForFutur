@@ -33,8 +33,6 @@
   height:auto;
 }
 
-
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -3142,13 +3140,13 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #9EB0C2;
+  background-color: #325d88;
   border-color: transparent;
 }
 .btn-primary:focus,
 .btn-primary.focus {
   color: #ffffff;
-  background-color: #9EB0C2;
+  background-color: #244363;
   border-color: rgba(0, 0, 0, 0);
 }
 .btn-primary:hover {

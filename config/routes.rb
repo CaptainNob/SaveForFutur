@@ -16,13 +16,15 @@ Rails.application.routes.draw do
   get 'deck', to: 'deck#show', as: 'deck'
   get 'new_deck', to: 'deck#new', as: 'new_deck' 
   post 'create_deck', to: 'deck#create', as: 'create_deck'
-  get 'edit_deck/:id', to: 'deck#edit', as: 'edit_deck'
+  get 'edit_deck', to: 'deck#edit', as: 'edit_deck'
   post 'update_deck', to: 'deck#update', as: 'update_deck'
   post 'destroy_deck', to: 'deck#destroy', as: 'destroy_deck'
   
   root 'home#index'
   
-  get 'gachas', to: 'gacha#index'
-  post 'roll_gacha', to: 'gacha#create'
   # match "*path", to: "application#routing_error", via: :all
 end
+
+# DEVOIRS BILEL :
+# Chemin pour la bibliothèque a modifier
+# Chemin pour les decks à modifier

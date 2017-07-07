@@ -1,36 +1,38 @@
-<div class="wrapper-bibli">
-	<p>
-  	<h3>
-    	Nom du Deck : <%= @deck.name %>
-    </h3>
-  </p>
-
-	<div class="wrapper-bibli">
-		<div class="wrapper-carte">
-	 		<% @cards.each do |c| %>
-	   		<% if @deck.send("card_#{c.id}") %>
-	   			<% if @deck.send("card_#{c.id}") > 0 %>
-	       		<% for i in 1..@deck.send("card_#{c.id}") do %>
-	     				<div class="carte">
-	           		<%= image_tag(c.image.url(:card)) %>
-	         		</div>
-	       			<%= button_to("Retirer carte", { action: 'create' }, method: :post, params: {id: c.id, action: :remove},
-		            data: { confirm: "Retirer 1 carte :\n#{c.name} ?" }) %><br>
-	       		<% end %>
+<html>
+  <head>
+	  <link rel="stylesheet" href="ModifierDeck.scss">
+  </head>
+  <body>
+    <div class="wrapper-bibli">
+      <p>Nom du Deck : <%= @deck.name %><br></p>
+	  <div class="wrapper-carte">
+	    <% @cards.each do |c| %>
+	    	<% if #deck.send("card_#{c.id}") %>
+	      	<% if @deck.send("card_#c.id") > 0 %>
+	        	<% for i in 1..@deck.send("card_#{c.id}") do %>
+	          	<div class="carte">
+	            	<%= image_tag(c.image.url(:thumb)) %><br>
+	            	<p>
+	            		Nom : <%= c.name %>
+	            	</p>
+	          	</div>
+	        	<% end %>
 	      	<% end %>
 	    	<% end %>
-	 	  <% end %>
-		</div>
-	</div>
+	  	<% end %>
+	  </div>
+	  <div class="stats-bibli">
+	    <h3>
+	    	<%= for i in 1..15 do %>
+	    		<% total += @deck.card_#{i} %>
+	    	<% end %>
+      </h3>
+	    <a href="#" class="btn btn-default">Enregistrer Deck</a>
+	  </div>
 	  
-	<div class="stats-bibli">
-	 	<% total = 0 %>
-	 	<% for i in 1..15 do %>
-	   	<% total += @deck.send("card_#{i}") %>
-	  <% end %>
-	  <h3>
-	   	<%= "Total Cartes : #{total} / 40" %>
-    </h3>
-	  <!--a href="#" class="btn btn-default">Enregistrer Deck</a-->
-	</div>
-</div>
+	  <div class="tri-bibli">
+	    <h3>Tri</h3>
+	  </div>
+    </div>
+  </body>
+</html>

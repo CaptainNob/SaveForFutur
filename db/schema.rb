@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706155341) do
+ActiveRecord::Schema.define(version: 20170611154051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,73 +47,61 @@ ActiveRecord::Schema.define(version: 20170706155341) do
   end
 
   create_table "decks", force: :cascade do |t|
-    t.string "name", default: "Default deck"
-    t.integer "card_1", default: 0
-    t.integer "card_2", default: 0
-    t.integer "card_3", default: 0
-    t.integer "card_4", default: 0
-    t.integer "card_5", default: 0
-    t.integer "card_6", default: 0
-    t.integer "card_7", default: 0
-    t.integer "card_8", default: 0
-    t.integer "card_9", default: 0
-    t.integer "card_10", default: 0
-    t.integer "card_11", default: 0
-    t.integer "card_12", default: 0
-    t.integer "card_13", default: 0
-    t.integer "card_14", default: 0
-    t.integer "card_15", default: 0
-    t.integer "card_16", default: 0
-    t.integer "card_17", default: 0
-    t.integer "card_18", default: 0
-    t.integer "card_19", default: 0
-    t.integer "card_20", default: 0
-    t.integer "card_21", default: 0
-    t.integer "card_22", default: 0
-    t.integer "card_23", default: 0
-    t.integer "card_24", default: 0
-    t.integer "card_25", default: 0
-    t.integer "card_26", default: 0
-    t.integer "card_27", default: 0
-    t.integer "card_28", default: 0
-    t.integer "card_29", default: 0
-    t.integer "card_30", default: 0
-    t.integer "card_31", default: 0
-    t.integer "card_32", default: 0
-    t.integer "card_33", default: 0
-    t.integer "card_34", default: 0
-    t.integer "card_35", default: 0
-    t.integer "card_36", default: 0
-    t.integer "card_37", default: 0
-    t.integer "card_38", default: 0
-    t.integer "card_39", default: 0
-    t.integer "card_40", default: 0
-    t.integer "card_41", default: 0
-    t.integer "card_42", default: 0
-    t.integer "card_43", default: 0
-    t.integer "card_44", default: 0
-    t.integer "card_45", default: 0
-    t.integer "card_46", default: 0
-    t.integer "card_47", default: 0
-    t.integer "card_48", default: 0
-    t.integer "card_49", default: 0
-    t.integer "card_50", default: 0
+    t.string "name"
+    t.integer "card_1"
+    t.integer "card_2"
+    t.integer "card_3"
+    t.integer "card_4"
+    t.integer "card_5"
+    t.integer "card_6"
+    t.integer "card_7"
+    t.integer "card_8"
+    t.integer "card_9"
+    t.integer "card_10"
+    t.integer "card_11"
+    t.integer "card_12"
+    t.integer "card_13"
+    t.integer "card_14"
+    t.integer "card_15"
+    t.integer "card_16"
+    t.integer "card_17"
+    t.integer "card_18"
+    t.integer "card_19"
+    t.integer "card_20"
+    t.integer "card_21"
+    t.integer "card_22"
+    t.integer "card_23"
+    t.integer "card_24"
+    t.integer "card_25"
+    t.integer "card_26"
+    t.integer "card_27"
+    t.integer "card_28"
+    t.integer "card_29"
+    t.integer "card_30"
+    t.integer "card_31"
+    t.integer "card_32"
+    t.integer "card_33"
+    t.integer "card_34"
+    t.integer "card_35"
+    t.integer "card_36"
+    t.integer "card_37"
+    t.integer "card_38"
+    t.integer "card_39"
+    t.integer "card_40"
+    t.integer "card_41"
+    t.integer "card_42"
+    t.integer "card_43"
+    t.integer "card_44"
+    t.integer "card_45"
+    t.integer "card_46"
+    t.integer "card_47"
+    t.integer "card_48"
+    t.integer "card_49"
+    t.integer "card_50"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_decks_on_user_id"
-  end
-
-  create_table "gachas", force: :cascade do |t|
-    t.string "image", default: "app/assets/images/gacha.png", null: false
-    t.string "name", default: "A Gacha", null: false
-    t.integer "price", default: 0, null: false
-    t.boolean "kibrilles", default: false
-    t.decimal "rare1", default: "90.0", null: false
-    t.decimal "rare2", default: "8.0", null: false
-    t.decimal "rare3", default: "2.0", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "kibrilles_packs", force: :cascade do |t|
@@ -124,56 +112,56 @@ ActiveRecord::Schema.define(version: 20170706155341) do
   end
 
   create_table "libraries", force: :cascade do |t|
-    t.integer "card_1", default: 10
-    t.integer "card_2", default: 6
-    t.integer "card_3", default: 4
-    t.integer "card_4", default: 4
-    t.integer "card_5", default: 0
-    t.integer "card_6", default: 0
-    t.integer "card_7", default: 6
-    t.integer "card_8", default: 2
-    t.integer "card_9", default: 1
-    t.integer "card_10", default: 0
-    t.integer "card_11", default: 0
-    t.integer "card_12", default: 1
-    t.integer "card_13", default: 0
-    t.integer "card_14", default: 1
-    t.integer "card_15", default: 1
-    t.integer "card_16", default: 0
-    t.integer "card_17", default: 0
-    t.integer "card_18", default: 0
-    t.integer "card_19", default: 0
-    t.integer "card_20", default: 0
-    t.integer "card_21", default: 0
-    t.integer "card_22", default: 0
-    t.integer "card_23", default: 0
-    t.integer "card_24", default: 0
-    t.integer "card_25", default: 0
-    t.integer "card_26", default: 0
-    t.integer "card_27", default: 0
-    t.integer "card_28", default: 0
-    t.integer "card_29", default: 0
-    t.integer "card_30", default: 0
-    t.integer "card_31", default: 0
-    t.integer "card_32", default: 0
-    t.integer "card_33", default: 0
-    t.integer "card_34", default: 0
-    t.integer "card_35", default: 0
-    t.integer "card_36", default: 0
-    t.integer "card_37", default: 0
-    t.integer "card_38", default: 0
-    t.integer "card_39", default: 0
-    t.integer "card_40", default: 0
-    t.integer "card_41", default: 0
-    t.integer "card_42", default: 0
-    t.integer "card_43", default: 0
-    t.integer "card_44", default: 0
-    t.integer "card_45", default: 0
-    t.integer "card_46", default: 0
-    t.integer "card_47", default: 0
-    t.integer "card_48", default: 0
-    t.integer "card_49", default: 0
-    t.integer "card_50", default: 0
+    t.integer "card_1"
+    t.integer "card_2"
+    t.integer "card_3"
+    t.integer "card_4"
+    t.integer "card_5"
+    t.integer "card_6"
+    t.integer "card_7"
+    t.integer "card_8"
+    t.integer "card_9"
+    t.integer "card_10"
+    t.integer "card_11"
+    t.integer "card_12"
+    t.integer "card_13"
+    t.integer "card_14"
+    t.integer "card_15"
+    t.integer "card_16"
+    t.integer "card_17"
+    t.integer "card_18"
+    t.integer "card_19"
+    t.integer "card_20"
+    t.integer "card_21"
+    t.integer "card_22"
+    t.integer "card_23"
+    t.integer "card_24"
+    t.integer "card_25"
+    t.integer "card_26"
+    t.integer "card_27"
+    t.integer "card_28"
+    t.integer "card_29"
+    t.integer "card_30"
+    t.integer "card_31"
+    t.integer "card_32"
+    t.integer "card_33"
+    t.integer "card_34"
+    t.integer "card_35"
+    t.integer "card_36"
+    t.integer "card_37"
+    t.integer "card_38"
+    t.integer "card_39"
+    t.integer "card_40"
+    t.integer "card_41"
+    t.integer "card_42"
+    t.integer "card_43"
+    t.integer "card_44"
+    t.integer "card_45"
+    t.integer "card_46"
+    t.integer "card_47"
+    t.integer "card_48"
+    t.integer "card_49"
+    t.integer "card_50"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

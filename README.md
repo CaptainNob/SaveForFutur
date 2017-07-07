@@ -1,28 +1,24 @@
-## Depedencies
-* Ruby version : 2.4.1
-* Rails Version : 5.1.2
-* System dependencies : Mac or Linux type OS
-* Database : PostGreSql
+# README
 
-## Database creation :
-In the console :
-* cd projectname
-* rails db:create
-* rails db:migrate
-* rails db:seed
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Launch the Game :
-In the console
-* rails s -b $IP -p $PORT
+Things you may want to cover:
 
-In your browser
-* http://localhost:3000
-* OR
-* application_url
+* Ruby version
 
-## Access to the Back Office :
-* User account *MUST BE ADMIN*
-* Admin user must be authentified
-* Upon authentification, click on the button "Back Office" to acces the back office.
-* Only Admin User can see ths button.
-* OR you can access the Back office by typing this on your browser URL : application_url/leskibrillesfontdingdings
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

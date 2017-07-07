@@ -1,0 +1,67 @@
+<html>
+    <head>
+        
+    
+    </head>
+    
+    <body>
+    <div class="PartGauche">
+        <div class="Creer">
+            <h3> Créer Une Partie</h3>
+        </div>
+        <form  action="mysuperscript.php" autocomplete="on"> 
+              <p> 
+                 <label for="usernamesignup" class="uname" data-icon="u">Nom de Partie</label>
+                 <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+              </p>
+               <p> 
+                  <label for="emailsignup" class="youmail" data-icon="e" > Mot de passe</label>
+                  <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+             </p>
+             <div>
+                   <h3>Parametres</h3>
+                    <!--Bouton Plateau -->
+             <ul id="menu-demo2">
+              <li><%= link_to root_path do %><% end %>
+		            <ul>
+			            <li><a href="#">Plateau</a></li>
+			                        <li><a href="#">Plateau 1</a></li>
+			                        <li><a href="#">Plateau 2</a></li>
+		        	                <li><a href="#">Plateau 3</a></a></li>
+		                        </ul>
+	                        </li>
+	                     </ul>
+	                     
+	         <!--Bouton Mode -->
+             <ul id="menu-demo3">
+              <li><%= link_to root_path do %><% end %>
+		            <ul>
+			            <li><a href="#">Mode</a></li>
+			                        <li><a href="#">Mode 1</a></li>
+			                        <li><a href="#">Mode 2</a></li>
+		        	                <li><a href="#">Mode 3</a></a></li>
+		                        </ul>
+	                        </li>
+	                     </ul>
+	         
+                   
+             </div>
+    
+    </div>
+     <div class="PartDroite">
+         
+         <div class="Plateau">
+             <h3>Plateau</h3>
+                  <!--Espace Plateau -->
+               <div class="carte"></div>
+             
+         </div>
+        
+        
+    </div>
+    
+        
+    </body>
+    
+    
+</html>

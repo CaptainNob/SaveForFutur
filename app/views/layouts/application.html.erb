@@ -14,43 +14,26 @@
     </div>
     
     <% if user_signed_in? %>
-      
+      <div align='left'>
+        <p><h3>Ah ! Duke <%= current_user.username  %> vous avez fait bon voyage ?<h3></p>
+      </div>
       
       <div align='right'>
-        <!-- <%= link_to('DECONNECTION', destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg") %> -->
-        <!-- <% if current_user.admin? %>
-          <%= link_to('BACK OFFICE', leskibrillesfontdingdings_root_path, class: "btn btn-primary btn-lg") %>
-        <% end %> -->
+        <p><%= link_to('DECONNECTION', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-lg Bouton_Creer") %></p>
+        <% if current_user.admin? %>
+          <p><%= link_to('BACK OFFICE', leskibrillesfontdingdings_root_path, class: "btn btn-primary btn-lg Bouton_Creer") %></p>
+        <% end %>
       </div>
       
       <%= render 'layouts/messages' %>
       
       <div class='bottom'>
-        <table>
+        <table style='border: 1px solid black;'>
           <tr>
-            <% if user_signed_in? %>
-            <td>
-              <h2>Duke <%= current_user.username %></h2>
-              <h2>Vous avez <%= current_user.kibrilles%> Kibrilles</h3>
-            </td>
-            <%end%>
-          </tr>
-        </table>
-        <table>
-          <tr>
-	          <!--<td><%= link_to('Gérer Deck', decks_path, class: "btn btn-primary btn-lg") %></td> -->
-		        <td><%= link_to('Bibliothèque', library_path, class: "btn btn-primary btn-lg") %></td>
-		        <td><%= link_to('Gachas', gachas_path, class: "btn btn-primary btn-lg") %></td>
-		        <td><%= link_to('Obtenir plus de kibrilles', pack_kibrilles_path, class: "btn btn-primary btn-lg") %></td>
-		        <td><%= link_to('Modifier son profil', edit_user_registration_path, class: "btn btn-primary btn-lg") %></td>
-		        <!-- <td><%= link_to('Créer une partie', decks_path, class: "btn btn-primary btn-lg") %></td> -->
-	          <!-- <td><%= link_to('Rejoindre une partie', decks_path, class: "btn btn-primary btn-lg") %></td> -->
-	          <td><%= link_to('DECONNECTION', destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg") %></td>
-	          <td>
-	            <% if current_user.admin? %>
-                <%= link_to('BACK OFFICE', leskibrillesfontdingdings_root_path, class: "btn btn-warning btn-lg") %>
-              <% end %>
-	          </td>
+	          <td style='border: 1px solid black;'><%= link_to('Gérer Deck', decks_path, class: "btn btn-primary btn-lg Bouton_Creer") %></td>
+		        <td style='border: 1px solid black;'><%= link_to('Bibliothèque', library_path, class: "btn btn-primary btn-lg Bouton_Creer") %></td>
+		        <!--td style='border: 1px solid black;'><!%= link_to('Créer une partie', create_game_path, class: "btn btn-primary btn-lg Bouton_Creer") %></td>
+	          <td style='border: 1px solid black;'><!%= link_to('Rejoindre une partie', join_game_path, class: "btn btn-primary btn-lg Bouton_Creer") %></td-->
 	        </tr>
         </table>
       </div>
@@ -62,4 +45,12 @@
   <body>
     <%= yield %>
   </body>
+  
+  <footer>
+    <div align='center'>
+      <h1>Envoyez vos dons à mon PAYPAL mimoun1309@gmail.com</h1>
+    </div>
+  </footer>
 </html>
+
+<!--%= debug(params) %-->
