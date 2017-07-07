@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiddleAgeDisorder</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <div align='center'>
+      <%= link_to root_path do %>
+        <%= image_tag 'MMlogo.jpg', width: 136, height: 67, alt: 'Middle Age Disorder' %>
+      <% end %>
+      <h1>Middle Age Disorder</h1>
+    </div>
+    
+    <% if user_signed_in? %>
+      
+      
+      <div align='right'>
+        <!-- <%= link_to('DECONNECTION', destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg") %> -->
+        <!-- <% if current_user.admin? %>
+          <%= link_to('BACK OFFICE', leskibrillesfontdingdings_root_path, class: "btn btn-primary btn-lg") %>
+        <% end %> -->
+      </div>
+      
+      <%= render 'layouts/messages' %>
+      
+      <div class='bottom'>
+        <table>
+          <tr>
+            <% if user_signed_in? %>
+            <td>
+              <h2>Duke <%= current_user.username %></h2>
+              <h2>Vous avez <%= current_user.kibrilles%> Kibrilles</h3>
+            </td>
+            <%end%>
+          </tr>
+        </table>
+        <table>
+          <tr>
+	          <!--<td><%= link_to('Gérer Deck', decks_path, class: "btn btn-primary btn-lg") %></td> -->
+		        <td><%= link_to('Bibliothèque', library_path, class: "btn btn-primary btn-lg") %></td>
+		        <td><%= link_to('Gachas', gachas_path, class: "btn btn-primary btn-lg") %></td>
+		        <td><%= link_to('Obtenir plus de kibrilles', pack_kibrilles_path, class: "btn btn-primary btn-lg") %></td>
+		        <td><%= link_to('Modifier son profil', edit_user_registration_path, class: "btn btn-primary btn-lg") %></td>
+		        <!-- <td><%= link_to('Créer une partie', decks_path, class: "btn btn-primary btn-lg") %></td> -->
+	          <!-- <td><%= link_to('Rejoindre une partie', decks_path, class: "btn btn-primary btn-lg") %></td> -->
+	          <td><%= link_to('DECONNECTION', destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg") %></td>
+	          <td>
+	            <% if current_user.admin? %>
+                <%= link_to('BACK OFFICE', leskibrillesfontdingdings_root_path, class: "btn btn-warning btn-lg") %>
+              <% end %>
+	          </td>
+	        </tr>
+        </table>
+      </div>
+    <% else %>
+      <%= render 'layouts/messages' %>
+    <% end %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<div>
+  <table>
+    <tr>
+      <% @gachas.each do |g| %>
+        <td>
+          <%= image_tag(g.image.url(:thumb)) %><br>
+          <%= g.name %><br>
+          <% if g.kibrilles == true %>
+            <%= button_to("Tourner gacha", { action: 'create' }, method: :post, params: {id: g.id},
+              data: { confirm: "Tourner le #{g.name}\nMontant : #{g.price} Kibrilles ?" }) %>
+          <% else %>
+            <%= button_to("Tourner gacha", { action: 'create' }, method: :post, params: {id: g.id},
+              data: { confirm: "Tourner le #{g.name}\nMontant : #{g.price} Dingdings ?" }) %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  </table>
+</div>

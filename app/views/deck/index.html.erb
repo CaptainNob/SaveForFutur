@@ -1,0 +1,10 @@
+<% @decks.each do |d| %>
+  <%= link_to(d.name, edit_deck_path(d.id), class: "btn btn-primary btn-lg") %><br>
+  <% counter = 0 %>
+  <% for i in 1..15 do %>
+    <% counter += d.send("card_#{i}") %>
+  <% end %>
+  <div class="stats-bibli">
+    <h3><%= "Cartes : #{counter} / 40" %></h3>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <h1>BIBLIOTHEQUE</h1>
+	  <div class="wrapper-bibli">
+		  <div class="wrapper-carte">
+		    <% counter = 0 %>
+		    <% @cards.each do |c| %>
+  		    <% if current_user.library.send("card_#{c.id}") %>
+  		      <% if current_user.library.send("card_#{c.id}") > 0 %>
+  		        <% for i in 1..current_user.library.send("card_#{c.id}") do %>
+	              <div class="carte">
+	                <%= image_tag(c.image.url(:thumb))%>
+                  <% button_to("Vendre Carte", { action: :update }, method: :update, params: { card_id: c.id },
+                    data: { confirm: "Vendre : #{c.name} ?\nValeur Carte : #{c.sell_price} Dingdings"}) %>
+	              </div>
+	              <% counter += 1 %>
+	            <% end %>
+	          <% end %>
+  		    <% end %>
+	      <% end %>
+		  </div>
+	
+  		<div class="stats-bibli">
+	  		<h3><%= "Total cartes : #{counter} / 100" %></h3>
+		  </div>
+	  </div>
+  </body>
+</html>
